@@ -1,3 +1,117 @@
-body {background-color: rgb(119, 255, 0);}
-h1 {color: blue;}
-p {font-size: 64px;}
+body {
+    margin: 0;
+    padding: 40px 20px;
+    min-height: 100vh;
+    position: relative;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* خط حديث وناعم */
+    color: #ffffff; /* لون نصوص الصفحة الافتراضي أبيض */
+    direction: rtl; /* اتجاه من اليمين لليسار */
+}
+
+/* خلفية الصورة الضبابية */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: url('img/fr.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(8px) brightness(0.6); /* جعل الخلفية أغمق قليلاً ليبرز النص والجدول */
+    z-index: -1;
+}
+
+/* العناوين والنصوص العلوية */
+h1 {
+    font-size: 42px;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 10px;
+    color: #ffffff;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* ظل ناعم واحترافي */
+    line-height: 2;
+}
+
+p {
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+    line-height: 0.2;
+    color: #e0e0e0;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* تحويل الجدول إلى النمط الزجاجي الاحترافي */
+table {
+    direction: rtl;            /* يعكس اتجاه الأعمدة لتبدأ من اليمين إلى اليسار */
+    unicode-bidi: bidi-override; /* يضمن إجبار المتصفح على تطبيق الاتجاه */
+    
+    margin: 0 auto;
+    border-collapse: separate; 
+    border-spacing: 0;
+    width: 90%;
+    max-width: 950px;
+    background: rgba(255, 255, 255, 0.85); 
+    backdrop-filter: blur(10px);
+    border-radius: 16px; 
+    overflow: hidden;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2); 
+}
+
+
+
+/* عناوين الجدول (الصف الأول) */
+th {
+    background-color: #1e293b; /* كحلي داكن فاخر جداً */
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 16px;
+    text-align: center;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+/* خلايا البيانات الداخلية */
+td {
+    color: #334155; /* لون نص رمادي داكن ومريح للعين */
+    font-size: 15px;
+    font-weight: 500;
+    padding: 14px;
+    text-align: center;
+    border-bottom: 1px solid #e2e8f0; /* خطوط فاصلة ناعمة جداً */
+}
+
+/* تأثير عند تمرير الماوس فوق الصفوف */
+tr:hover td {
+    background-color: rgba(30, 41, 59, 0.04); /* حركة تفاعلية لطيفة للمستخدم */
+}
+
+/* مسح الخط الأسود الأخير */
+tr:last-child td {
+    border-bottom: none;
+}
+@media (max-width: 768px) {
+    body {
+        padding: 20px 10px;
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+
+    p {
+        font-size: 16px;
+        margin-bottom: 30px;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    th, td {
+        padding: 12px;
+        font-size: 14px;
+    }
+}
